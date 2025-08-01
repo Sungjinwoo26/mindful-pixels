@@ -1,0 +1,471 @@
+/* ==================== Basic Setup & Fonts ==================== */
+:root {
+    --bg-color: #000;
+    --text-color: #fff;
+    --primary-color: #DB3A5B; /* Red from contact page */
+    --secondary-color: #0047FF; /* Blue from team page */
+    --accent-color-1: #FFA500; /* Orange from nav */
+    --accent-color-2: #FFD700; /* Yellow from nav */
+    --font-main: 'Space Grotesk', sans-serif;
+    --font-heading: 'Archivo', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    overflow-x: hidden;
+}
+
+/* ==================== Loader ==================== */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.loader-content {
+    text-align: left;
+    max-width: 80%;
+}
+
+.loader-counter {
+    font-family: var(--font-main);
+    font-size: 1.2rem;
+    color: #aaa;
+    margin-bottom: 1rem;
+}
+
+.loader-content h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 8vw, 4rem);
+    line-height: 1.1;
+    color: #fff;
+    font-weight: 700;
+}
+
+.loader-content h1 .now {
+    color: #aaa;
+    font-style: italic;
+}
+
+.loader-content p {
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-top: 1.5rem;
+}
+
+.main-content {
+    display: none; /* Initially hidden */
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+
+/* ==================== Navbar ==================== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    z-index: 100;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.nav-toggle {
+    width: 30px;
+    height: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.nav-toggle.active span:nth-child(1) {
+    transform: translateY(9.5px) rotate(45deg);
+}
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle.active span:nth-child(3) {
+    transform: translateY(-9.5px) rotate(-45deg);
+}
+
+.nav-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100vh;
+    background-color: #fff;
+    color: #000;
+    transform: translateX(100%);
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 90;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-menu.active {
+    transform: translateX(0);
+}
+
+.nav-content {
+    width: 80%;
+}
+
+.nav-description {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    max-width: 400px;
+}
+
+.nav-menu ul {
+    list-style: none;
+}
+
+.nav-menu ul li a {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 10vw, 6rem);
+    font-weight: 700;
+    color: #000;
+    text-decoration: none;
+    line-height: 1.1;
+    position: relative;
+    display: inline-block;
+    padding: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.nav-menu ul li {
+    margin: 1rem 0;
+    overflow: hidden;
+}
+
+.nav-menu ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--accent-color-1);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: -1;
+}
+.nav-menu ul li:nth-child(2) a::after { background-color: var(--accent-color-2); }
+
+.nav-menu ul li a:hover::after {
+    transform: scaleX(1);
+}
+
+/* ==================== Home Page ==================== */
+.home-section {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spline-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+spline-viewer {
+    width: 100%;
+    height: 100%;
+}
+
+.home-text {
+    text-align: center;
+    z-index: 10;
+}
+
+.home-text h1 {
+    font-family: 'Archivo', sans-serif;
+    font-size: clamp(3rem, 12vw, 8rem);
+    line-height: 1;
+    text-transform: uppercase;
+    /* Dotted/Stencil effect simulation */
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.8);
+    background: url('data:image/svg+xml;utf8,<svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><circle cx="1" cy="1" r="1" fill="rgba(255,255,255,0.4)"/></svg>');
+    background-size: 4px 4px;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+
+.home-text p {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* ==================== Infinite Marquee ==================== */
+.marquee-section {
+    padding: 4rem 0;
+    background-color: #111;
+    overflow: hidden;
+}
+
+.marquee-section h2 {
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: rgba(255,255,255,0.5);
+}
+
+.marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.marquee-wrapper:hover .marquee {
+    animation-play-state: paused;
+}
+
+.marquee {
+    display: flex;
+    width: fit-content;
+    animation: marquee-scroll 40s linear infinite;
+}
+
+.marquee-item {
+    flex-shrink: 0;
+    width: 300px;
+    margin: 0 20px;
+    text-align: center;
+}
+
+.marquee-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.marquee-item p {
+    font-family: var(--font-main);
+    font-weight: 500;
+}
+
+@keyframes marquee-scroll {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+
+
+/* ==================== Our Team Page ==================== */
+.team-section {
+    padding: 8rem 4rem 4rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+.team-title {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 10vw, 5rem);
+    text-align: center;
+    margin-bottom: 4rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.team-container {
+    position: relative;
+}
+
+.team-image-viewer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+.team-image-viewer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.team-list {
+    list-style: none;
+}
+
+.team-member {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: background-color 0.4s ease;
+    position: relative;
+}
+
+.team-member.active {
+    background-color: var(--secondary-color);
+}
+
+.team-member .member-number {
+    color: rgba(255,255,255,0.5);
+    font-size: 1rem;
+}
+
+.team-member .member-name {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: 700;
+}
+
+.team-member .member-role {
+    font-family: var(--font-main);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
+}
+
+/* ==================== Contact Page ==================== */
+.contact-section {
+    background-color: var(--primary-color);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 2rem;
+    color: #fff;
+}
+
+.contact-content {
+    max-width: 800px;
+    width: 100%;
+}
+
+.contact-content h1 {
+    font-family: 'Archivo', sans-serif;
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    line-height: 1;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1.5px #fff;
+    background: url('data:image/svg+xml;utf8,<svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><circle cx="1" cy="1" r="1" fill="rgba(255,255,255,0.4)"/></svg>');
+    background-size: 4px 4px;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.contact-content p {
+    font-size: 1.2rem;
+    max-width: 500px;
+    margin: 1.5rem 0;
+}
+
+.contact-form textarea {
+    width: 100%;
+    height: 150px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+    font-family: var(--font-main);
+    font-size: 1.2rem;
+    padding: 1rem;
+    resize: none;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-form textarea:focus {
+    border-bottom-color: #fff;
+}
+
+.contact-form button {
+    display: none; /* Hide button as per original design */
+}
+
+/* ==================== Responsive Design ==================== */
+@media (max-width: 768px) {
+    .nav-menu {
+        width: 100%;
+    }
+    
+    .team-section {
+        padding: 6rem 1rem 2rem 1rem;
+    }
+    
+    .team-image-viewer {
+        width: 150px;
+        height: 150px;
+        opacity: 0.3;
+    }
+    
+    .team-member {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.5rem 0.5rem;
+    }
+    
+    .team-member .member-name {
+        font-size: 1.8rem;
+        margin: 0.5rem 0;
+    }
+
+    .team-member .member-role {
+        align-self: flex-end;
+    }
+}
