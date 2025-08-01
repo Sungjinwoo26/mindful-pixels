@@ -327,6 +327,7 @@ spline-viewer {
     position: relative;
 }
 
+/* Find and update this rule */
 .team-image-viewer {
     position: fixed;
     top: 50%;
@@ -336,9 +337,10 @@ spline-viewer {
     height: 250px;
     border-radius: 50%;
     overflow: hidden;
-    z-index: -1;
-    opacity: 0.8;
-}
+    z-index: 5; /* Changed from -1 to 5 */
+    opacity: 1; /* Changed from 0.8 to 1 */
+    pointer-events: none; /* Prevents image from blocking mouse hover */
+}   
 
 .team-image-viewer img {
     width: 100%;
@@ -371,10 +373,27 @@ spline-viewer {
     font-size: 1rem;
 }
 
-.team-member .member-name {
+.team-member.member-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Controls space between number and name */
+    
+}
+.member-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; 
+}
+.member-name {
     font-family: var(--font-heading);
-    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-size: clamp(1.5rem, 4vw, 3rem); 
     font-weight: 700;
+}
+
+/* This rule styles the number */
+.member-number {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.2rem;
 }
 
 .team-member .member-role {
