@@ -792,6 +792,170 @@ spline-viewer {
     transition: color 0.3s ease-in-out;
 }
 
+/* ==================== Learn Page ==================== */
+.learn-hero {
+    padding: 12rem 2rem 6rem;
+    text-align: center;
+    background-color: #0a0a0a;
+}
+
+.learn-hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    line-height: 1.1;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.learn-hero-content p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.learn-content {
+    background-color: var(--bg-color);
+    padding: 4rem 2rem;
+}
+
+.learn-article {
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.learn-article h2 {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.learn-article h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.learn-article p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.learn-article a.text-link {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s;
+}
+
+.learn-article a.text-link:hover {
+    color: #fff;
+}
+
+/* Call to Action Block */
+.learn-cta {
+    background-color: #111;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 2.5rem;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.learn-cta h3 {
+    margin-top: 0;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: #fff;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-decoration: none;
+    padding: 1rem 2.5rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #0033cc;
+    transform: translateY(-2px);
+}
+
+/* Pose Gallery */
+.pose-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.pose-card {
+    background-color: #111;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pose-card h4 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.pose-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Techniques List */
+.techniques-list {
+    list-style: none;
+    counter-reset: techniques-counter;
+    padding-left: 0;
+    margin-top: 2rem;
+}
+
+.techniques-list li {
+    counter-increment: techniques-counter;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    position: relative;
+    padding-left: 3rem;
+}
+
+.techniques-list li::before {
+    content: counter(techniques-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.learn-divider {
+    border: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 4rem 0;
+}
+
+
+
 /* ==================== Responsive Design ==================== */
 @media (max-width: 768px) {
     .nav-menu {
