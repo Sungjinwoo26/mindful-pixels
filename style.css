@@ -255,6 +255,50 @@ spline-viewer {
     text-align: left;
 }
 
+/* ==================== About Section ==================== */
+.about-section {
+    /* Sets the overall spacing and width */
+    max-width: 900px;
+    margin: 0 auto; /* Centers the section */
+    padding: 4rem 2rem; /* Vertical and horizontal padding */
+    background-color: #0a0a0a; /* A very dark grey, slightly off-black */
+    color: rgba(255, 255, 255, 0.85); /* Off-white text for readability */
+}
+
+.about-section h2 {
+    /* Styles the main heading */
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.about-section p {
+    /* Styles the paragraphs */
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.about-section p b {
+    /* Makes the bolded text stand out more */
+    color: #fff;
+    font-weight: 700;
+}
+
+/* Styles for the new ordered list */
+.tips-list {
+    list-style-type: decimal; /* Ensures numbers are shown */
+    padding-left: 1.5rem; /* Indents the list */
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.tips-list li {
+    margin-bottom: 0.75rem; /* Space between each list item */
+}
+
+
 /* ==================== Infinite Marquee ==================== */
 .marquee-section {
     padding: 4rem 0;
