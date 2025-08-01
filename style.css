@@ -38,16 +38,14 @@ body {
     transition: opacity 0.8s ease, visibility 0.8s ease;
 }
 
-.loader-content {
-    text-align: left;
-    max-width: 80%;
-}
+
 
 .loader-counter {
-    font-family: var(--font-main);
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #aaa;
-    margin-bottom: 1rem;
+    font-family: var(--font-main);
+    /* Adjusts position to align with "YOUR" */
+    transform: translateY(-5px);
 }
 
 .loader-content h1 {
@@ -58,10 +56,6 @@ body {
     font-weight: 700;
 }
 
-.loader-content h1 .now {
-    color: #aaa;
-    font-style: italic;
-}
 
 .loader-content p {
     font-family: var(--font-main);
@@ -76,6 +70,71 @@ body {
     transition: opacity 1s ease;
 }
 
+/* ==================== Loader Updates ==================== */
+
+
+.loader-content {
+    position: relative; 
+    z-index: 1;
+}
+
+
+.loader-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-heading);
+    font-size: clamp(6rem, 20vw, 12rem);
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.05); 
+    z-index: -1;
+}
+
+
+.loader-line {
+    animation: wipe-in 1s forwards;
+    opacity: 0; 
+    animation-fill-mode: forwards;
+}
+
+
+.loader-line-1 { animation-delay: 0.2s; }
+.loader-line-2 { animation-delay: 0.4s; }
+.loader-line-3 { animation-delay: 0.6s; }
+
+
+.loader-line-1 {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem; 
+}
+
+
+
+
+@keyframes wipe-in {
+    from {
+        opacity: 1;
+        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+    }
+    to {
+        opacity: 1;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+
+@keyframes blink {
+    50% { opacity: 0.2; }
+}
+
+/* Class to apply the blinking animation */
+.blinking {
+    animation: blink 1.0s infinite;
+}
 
 /* ==================== Navbar ==================== */
 header {
@@ -257,16 +316,16 @@ spline-viewer {
 
 /* ==================== About Section ==================== */
 .about-section {
-    /* Sets the overall spacing and width */
+    
     max-width: 900px;
-    margin: 0 auto; /* Centers the section */
-    padding: 4rem 2rem; /* Vertical and horizontal padding */
-    background-color: #0a0a0a; /* A very dark grey, slightly off-black */
-    color: rgba(255, 255, 255, 0.85); /* Off-white text for readability */
+    margin: 0 auto; 
+    padding: 4rem 2rem; 
+    background-color: #0a0a0a; 
+    color: rgba(255, 255, 255, 0.85); 
 }
 
 .about-section h2 {
-    /* Styles the main heading */
+    
     font-family: var(--font-heading);
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
@@ -274,28 +333,28 @@ spline-viewer {
 }
 
 .about-section p {
-    /* Styles the paragraphs */
+   
     font-size: 1.1rem;
     line-height: 1.7;
     margin-bottom: 1rem;
 }
 
 .about-section p b {
-    /* Makes the bolded text stand out more */
+    
     color: #fff;
     font-weight: 700;
 }
 
-/* Styles for the new ordered list */
+
 .tips-list {
-    list-style-type: decimal; /* Ensures numbers are shown */
-    padding-left: 1.5rem; /* Indents the list */
+    list-style-type: decimal; 
+    padding-left: 1.5rem;
     font-size: 1.1rem;
     line-height: 1.8;
 }
 
 .tips-list li {
-    margin-bottom: 0.75rem; /* Space between each list item */
+    margin-bottom: 0.75rem; 
 }
 
 
@@ -375,7 +434,7 @@ spline-viewer {
     position: relative;
 }
 
-/* Find and update this rule */
+
 .team-image-viewer {
     position: fixed;
     top: 50%;
@@ -385,9 +444,9 @@ spline-viewer {
     height: 250px;
     border-radius: 50%;
     overflow: hidden;
-    z-index: 5; /* Changed from -1 to 5 */
-    opacity: 1; /* Changed from 0.8 to 1 */
-    pointer-events: none; /* Prevents image from blocking mouse hover */
+    z-index: 5; 
+    opacity: 1; 
+    pointer-events: none;
 }   
 
 .team-image-viewer img {
@@ -424,7 +483,7 @@ spline-viewer {
 .team-member.member-info {
     display: flex;
     align-items: center;
-    gap: 1.5rem; /* Controls space between number and name */
+    gap: 1.5rem; 
     
 }
 .member-info {
