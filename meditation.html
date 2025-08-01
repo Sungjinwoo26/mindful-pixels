@@ -3,32 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mindful Pixels - Contact Us</title>
+    <title>Mindful Pixels - Meditation Timer</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <audio id="meditation-audio" src="assets/meditation-audio.mp3" preload="auto" loop></audio>
+    <audio id="chime-audio" src="assets/chime.mp3" preload="auto"></audio>
+
     <div class="main-content" style="display: block; opacity: 1;">
-                <header>
+        <header>
             <a href="index.html" class="logo-link">
                 <div class="logo">Mindful Pixels</div>
             </a>
-
             <div class="nav-toggle" id="nav-toggle">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            </header>
+        </header>
 
         <nav class="nav-menu" id="nav-menu">
             <div class="nav-content">
                 <p class="nav-description">
                     A digital space designed for calm and focus. Helping you navigate your inner world.
                 </p>
-                    <ul>
+                <ul>
                     <li><a href="index.html">HOME</a></li>
                     <li><a href="team.html">OUR TEAM</a></li>
                     <li><a href="meditation.html">MEDITATION</a></li>
@@ -37,18 +39,24 @@
             </div>
         </nav>
 
-        <section class="contact-section">
-            <div class="contact-content">
-                <h1>STARTING A NEW<br>JOURNEY</h1>
-                <p>Share your idea, and we'll do our best to navigate you through the process.</p>
-                <form class="contact-form">
-                    <textarea placeholder="Tell us about you..."></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
+        <section class="meditation-section">
+            <div class="timer-container">
+                <div class="breathing-circle"></div>
+                <div id="timer-display">10:00</div>
+                 <p class="duration-label">Move the slider to set the duration (in minutes)</p>
+                <div class="duration-slider-container">
+                    <span>1</span>
+                    <input type="range" min="1" max="60" value="10" class="duration-slider" id="duration-slider">
+                    <span>60</span>
+                </div>
+                <div class="timer-controls">
+                    <button id="timer-control-btn">BEGIN</button>
+                    <button id="timer-reset-btn" style="display: none;">RESET</button>
+                </div>
             </div>
         </section>
-
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>

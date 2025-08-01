@@ -510,6 +510,144 @@ spline-viewer {
     color: rgba(255,255,255,0.8);
 }
 
+
+/* ==================== Meditation Timer Page ==================== */
+.meditation-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 2rem;
+}
+
+.timer-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.breathing-circle {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -65%);
+    background-color: rgba(255, 255, 255, 0.05);
+    z-index: -1;
+    transition: transform 0.5s ease;
+}
+
+.breathing-circle.animating {
+    animation: breathe 10s ease-in-out infinite;
+}
+
+@keyframes breathe {
+    0% { transform: translate(-50%, -65%) scale(0.8); }
+    50% { transform: translate(-50%, -65%) scale(1); }
+    100% { transform: translate(-50%, -65%) scale(0.8); }
+}
+
+#timer-display {
+    font-family: var(--font-heading);
+    font-size: clamp(4rem, 20vw, 8rem);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--text-color);
+    margin: 2rem 0;
+}
+
+.duration-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1rem;
+}
+
+.duration-slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.duration-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 80%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+}
+
+.duration-slider:hover {
+    opacity: 1;
+}
+
+.duration-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--text-color);
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.duration-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--text-color);
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+}
+
+.timer-controls {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.timer-controls button {
+    font-family: var(--font-main);
+    font-size: 1rem;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+.timer-controls button:hover {
+    background-color: #ddd;
+}
+
+#timer-reset-btn {
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+#timer-reset-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+    
 /* ==================== Contact Page ==================== */
 .contact-section {
     background-color: var(--primary-color);
