@@ -11,24 +11,23 @@
 </head>
 <body>
     <div class="main-content" style="display: block; opacity: 1;">
-                <header>
+        <header>
             <a href="index.html" class="logo-link">
                 <div class="logo">Mindful Pixels</div>
             </a>
-
             <div class="nav-toggle" id="nav-toggle">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            </header>
+        </header>
 
         <nav class="nav-menu" id="nav-menu">
             <div class="nav-content">
                 <p class="nav-description">
                     A digital space designed for calm and focus. Helping you navigate your inner world.
                 </p>
-                    <ul>
+                <ul>
                     <li><a href="index.html">HOME</a></li>
                     <li><a href="team.html">OUR TEAM</a></li>
                     <li><a href="meditation.html">MEDITATION</a></li>
@@ -41,13 +40,15 @@
             <div class="contact-content">
                 <h1>STARTING A NEW<br>JOURNEY</h1>
                 <p>Share your idea, and we'll do our best to navigate you through the process.</p>
-                <form class="contact-form">
-                    <textarea placeholder="Tell us about you..."></textarea>
+                <form class="contact-form" action="https://formspree.io/f/mdkdlodo" method="POST">
+                    <input type="email" name="email" placeholder="Your email address" required>
+                    <textarea name="message" placeholder="Tell us about your journey..." required></textarea>
                     <button type="submit">Send Message</button>
                 </form>
+                <div id="form-status"></div>
+                
             </div>
         </section>
-
     </div>
     <script src="script.js"></script>
 </body>
