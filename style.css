@@ -1073,9 +1073,7 @@ spline-viewer {
         align-self: flex-end;
     }
 
-.team-image-viewer {
-    display: none;
-}
+
 
 
 .team-member::before {
