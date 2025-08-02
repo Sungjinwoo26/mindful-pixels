@@ -37,23 +37,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==================== Navbar Logic ====================
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    const navCloseBtn = document.getElementById('nav-close-btn');
+const navToggle = document.getElementById('nav-toggle');
+const navMenu = document.getElementById('nav-menu');
 
-    if (navToggle && navMenu && navCloseBtn) {
-        // Event to open the menu
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.add('active');
-            navToggle.classList.add('active'); // Animate hamburger to 'X'
-        });
-
-        // Event to close the menu
-        navCloseBtn.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active'); // Revert 'X' to hamburger
-        });
-    }
+if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+        // This single line handles both opening and closing
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+    });
+}
 
     // ==================== Team Section Logic  ====================
     const teamMembers = document.querySelectorAll('.team-member');

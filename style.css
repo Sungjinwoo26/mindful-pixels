@@ -173,11 +173,15 @@ header {
 .nav-toggle span {
     width: 100%;
     height: 3px;
+    /* This makes the icon color change smoothly */
     background-color: var(--text-color);
-    transition: all 0.3s ease-in-out;
+    transition: all 0.4s ease-in-out;
 }
 
 /* Animate hamburger to 'X' */
+.nav-toggle.active span {
+    background-color: #000; /* Change icon to black when menu is open */
+}
 .nav-toggle.active span:nth-child(1) {
     transform: translateY(9.5px) rotate(45deg);
 }
@@ -191,18 +195,18 @@ header {
 .nav-menu {
     position: fixed;
     top: 0;
-    right: 0; 
-    left: auto; 
-    width: 90vw; 
-    max-width: 1000px; 
+    right: 0;
+    left: auto;
+    width: 90vw;
+    max-width: 1000px;
     height: 100vh;
     background-color: #fff;
     color: #000;
     z-index: 90;
     display: flex;
     flex-direction: column;
-    padding: 6rem 0; 
-    /* Animation: expand from top rght */
+    justify-content: center;
+    padding: 2rem 0;
     transform: scale(0);
     transform-origin: top right;
     transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
@@ -210,26 +214,6 @@ header {
 
 .nav-menu.active {
     transform: scale(1);
-}
-
-.nav-close-btn {
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-    background: #f0f0f0;
-    border: 1px solid #ddd;
-    color: #333;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    cursor: pointer;
-    font-family: var(--font-main);
-    font-weight: 700;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.nav-close-btn:hover {
-    background-color: #000;
-    color: #fff;
 }
 
 .nav-content {
@@ -244,7 +228,7 @@ header {
     font-size: 1.1rem;
     max-width: 400px;
     color: #555;
-    padding: 0 5%; /* Add horizontal padding */
+    padding: 0 5%;
     margin-bottom: 2rem;
 }
 
@@ -255,32 +239,29 @@ header {
 
 .nav-menu ul li {
     border-bottom: 1px solid #eee;
-    height: 100px; /* Set a fixed height for each item */
+    height: 100px;
     transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
     position: relative;
-    background-color: #fff; /* Default background */
+    background-color: #fff;
 }
 
 .nav-menu ul li:first-child {
     border-top: 1px solid #eee;
 }
 
-/* Create the overlapping effect */
 .nav-menu ul:not(:hover) li + li {
-    
     margin-top: -40px; 
 }
 
-
 .nav-menu ul:hover li:hover {
-    height: 120px; 
+    height: 120px;
 }
 
 .nav-menu ul li a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 5%; 
+    padding: 0 5%;
     text-decoration: none;
     color: #000;
     height: 100%;
@@ -311,15 +292,14 @@ header {
     flex-shrink: 0;
 }
 
-
+/* Hover effects */
 .nav-menu ul li:hover {
-    
     background-color: #ff6b00; 
 }
 
 .nav-menu ul li:hover .nav-link-text {
     color: #fff;
-    -webkit-text-stroke: 0px; 
+    -webkit-text-stroke: 0px;
 }
 
 .nav-menu ul li:hover .nav-link-arrow {
