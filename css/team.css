@@ -1,0 +1,239 @@
+/* ==================== Our Team Page ==================== */
+/* ==================== Learn Page ==================== */
+:root {
+    --bg-color: #000;
+    --text-color: #fff;
+    --primary-color: #1757b1; /* Red from contact page */
+    --secondary-color: #0047FF; /* Blue from team page */
+    --accent-color-1: #1408fd; /* Orange from nav */
+    --accent-color-2: #2092fc; /* Yellow from nav */
+    --font-main: 'Space Grotesk', sans-serif;
+    --font-heading: 'Archivo', sans-serif;
+} 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    overflow-x: hidden;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    z-index: 100;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+.logo-link {
+    text-decoration: none;
+    color: inherit; 
+}
+
+.nav-toggle {
+    width: 30px;
+    height: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.nav-toggle.active span:nth-child(1) {
+    transform: translateY(9.5px) rotate(45deg);
+}
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle.active span:nth-child(3) {
+    transform: translateY(-9.5px) rotate(-45deg);
+}
+
+.nav-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100vh;
+    background-color: #fff;
+    color: #000;
+    transform: translateX(100%);
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 90;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-menu.active {
+    transform: translateX(0);
+}
+
+.nav-content {
+    width: 80%;
+}
+
+.nav-description {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    max-width: 400px;
+}
+
+.nav-menu ul {
+    list-style: none;
+}
+
+.nav-menu ul li a {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 10vw, 6rem);
+    font-weight: 700;
+    color: #000;
+    text-decoration: none;
+    line-height: 1.1;
+    position: relative;
+    display: inline-block;
+    padding: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.nav-menu ul li {
+    margin: 1rem 0;
+    overflow: hidden;
+}
+
+.nav-menu ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--accent-color-1);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: -1;
+}
+.nav-menu ul li:nth-child(2) a::after { background-color: var(--accent-color-2); }
+
+.nav-menu ul li a:hover::after {
+    transform: scaleX(1);
+}
+
+.team-section {
+    padding: 8rem 4rem 4rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+.team-title {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 10vw, 5rem);
+    text-align: center;
+    margin-bottom: 4rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.team-container {
+    position: relative;
+}
+
+
+.team-image-viewer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 5; 
+    opacity: 1; 
+    pointer-events: none;
+}   
+
+.team-image-viewer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.team-list {
+    list-style: none;
+}
+
+.team-member {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: background-color 0.4s ease;
+    position: relative;
+}
+
+.team-member.active {
+    background-color: var(--secondary-color);
+}
+
+.team-member .member-number {
+    color: rgba(255,255,255,0.5);
+    font-size: 1rem;
+}
+
+.team-member.member-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; 
+    
+}
+.member-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; 
+}
+.member-name {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 4vw, 3rem); 
+    font-weight: 700;
+}
+
+
+.member-number {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.2rem;
+}
+
+.team-member .member-role {
+    font-family: var(--font-main);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
+}

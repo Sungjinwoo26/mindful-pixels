@@ -1,0 +1,301 @@
+/* ==================== Learn Page ==================== */
+:root {
+    --bg-color: #000;
+    --text-color: #fff;
+    --primary-color: #1757b1; /* Red from contact page */
+    --secondary-color: #0047FF; /* Blue from team page */
+    --accent-color-1: #1408fd; /* Orange from nav */
+    --accent-color-2: #2092fc; /* Yellow from nav */
+    --font-main: 'Space Grotesk', sans-serif;
+    --font-heading: 'Archivo', sans-serif;
+} 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    overflow-x: hidden;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    z-index: 100;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+.logo-link {
+    text-decoration: none;
+    color: inherit; 
+}
+
+.nav-toggle {
+    width: 30px;
+    height: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.nav-toggle.active span:nth-child(1) {
+    transform: translateY(9.5px) rotate(45deg);
+}
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle.active span:nth-child(3) {
+    transform: translateY(-9.5px) rotate(-45deg);
+}
+
+.nav-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100vh;
+    background-color: #fff;
+    color: #000;
+    transform: translateX(100%);
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 90;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-menu.active {
+    transform: translateX(0);
+}
+
+.nav-content {
+    width: 80%;
+}
+
+.nav-description {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    max-width: 400px;
+}
+
+.nav-menu ul {
+    list-style: none;
+}
+
+.nav-menu ul li a {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 10vw, 6rem);
+    font-weight: 700;
+    color: #000;
+    text-decoration: none;
+    line-height: 1.1;
+    position: relative;
+    display: inline-block;
+    padding: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.nav-menu ul li {
+    margin: 1rem 0;
+    overflow: hidden;
+}
+
+.nav-menu ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--accent-color-1);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: -1;
+}
+.nav-menu ul li:nth-child(2) a::after { background-color: var(--accent-color-2); }
+
+.nav-menu ul li a:hover::after {
+    transform: scaleX(1);
+}
+
+.learn-hero {
+    padding: 12rem 2rem 6rem;
+    text-align: center;
+    background-color: #0a0a0a;
+}
+
+.learn-hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    line-height: 1.1;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.learn-hero-content p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    margin: 0 auto;
+    }
+
+.learn-content {
+    background-color: var(--bg-color);
+    padding: 4rem 2rem;
+}
+
+.learn-article {
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.learn-article h2 {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.learn-article h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.learn-article p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.learn-article a.text-link {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s;
+}
+
+.learn-article a.text-link:hover {
+    color: #fff;
+}
+
+/* Call to Action Block */
+.learn-cta {
+    background-color: #111;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 2.5rem;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.learn-cta h3 {
+    margin-top: 0;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: #fff;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-decoration: none;
+    padding: 1rem 2.5rem; border-radius: 5px;
+    margin-top: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #0033cc;
+    transform: translateY(-2px);
+}
+
+/* Pose Gallery */
+.pose-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.pose-card {
+    background-color: #111;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pose-card h4 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.pose-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+/* Techniques List */
+.techniques-list {
+    list-style: none;
+    counter-reset: techniques-counter;
+    padding-left: 0;
+    margin-top: 2rem;
+}
+
+.techniques-list li {
+    counter-increment: techniques-counter;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    position: relative;
+    padding-left: 3rem;
+}
+
+.techniques-list li::before {
+    content: counter(techniques-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.learn-divider {
+    border: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 4rem 0;
+}
