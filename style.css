@@ -361,7 +361,7 @@ spline-viewer {
 /* ==================== Infinite Marquee ==================== */
 .marquee-section {
     padding: 4rem 0;
-    background-color: #111;
+    background-color: black;
     overflow: hidden;
 }
 
@@ -987,6 +987,7 @@ spline-viewer {
         align-self: flex-end;
     }
 
+<<<<<<< HEAD
 .team-image-viewer {
     display: none;
 }
@@ -1017,3 +1018,200 @@ spline-viewer {
     margin: 0 15px;
 }
 }
+=======
+}
+
+
+/* ==================== Image Grid ==================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* body {
+    font-family: 'Poppins', sans-serif;
+    background-color: black;
+    color: #333;
+    margin: 0;
+    padding: 2rem;
+} */
+
+.featured-products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.featured-products h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.featured-products p {
+    font-size: 1rem;
+    max-width: 700px;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    color: #555;
+    }
+
+.product-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: repeat(2, 280px); /* Adjust height as needed */
+    gap: 20px;
+}
+
+.grid-item {
+    /* position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #fff; */
+    opacity: 0;
+    transform: translateY(40px);
+    transform: translateY(40px);
+    transition: all 0.6s ease;
+}
+
+
+.grid-item.animate-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.grid-item.large-item {
+    grid-row: span 2;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Slider Functionality */
+.slide-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.slide-content.active {
+    opacity: 1;
+}
+
+/* Slider Navigation Dots */
+.slider-nav {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.slider-nav .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.slider-nav .dot.active {
+    background-color: #fff;
+}
+
+/* Category Box Styling */
+.category-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.category-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.category-content .icon {
+    width: 48px;
+    height: 48px;
+    color: #8c7851;
+    stroke-width: 1;
+}
+
+.category-content h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.Join-now {
+    background-color: #8c7851;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.shop-now:hover {
+    background-color: #736240;
+}
+
+/* Product Info Overlay */
+.product-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    transform: translateY(100%);
+    transition: transform 0.4s ease-in-out;
+}
+
+.grid-item:hover .product-info {
+    transform: translateY(0);
+}
+
+.grid-item:nth-child(1) { animation-delay: 0.1s; }
+.grid-item:nth-child(2) { animation-delay: 0.2s; }
+.grid-item:nth-child(3) { animation-delay: 0.3s; }
+.grid-item:nth-child(4) { animation-delay: 0.4s; }
+.grid-item:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+>>>>>>> 8c96ea4 (image grid)

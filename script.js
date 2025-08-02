@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+<<<<<<< HEAD
     // ==================== Meditation Timer Logic ====================
     const timerDisplay = document.getElementById('timer-display');
     if (timerDisplay) {
@@ -197,8 +198,63 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitButton.textContent = 'Send Message';
                 submitButton.disabled = false;
                 setTimeout(() => { formStatus.textContent = ""; }, 5000); // Clear status after 5s
+=======
+});
+
+    //    <------------Imagegrid-------------->
+document.addEventListener('DOMContentLoaded', () => {
+    // Select all the elements needed for the slider
+    const navDots = document.querySelectorAll('.slider-nav .dot');
+    const gridItems = document.querySelectorAll('.product-grid .grid-item');
+
+    // Function to change the slide
+    function showSlide(slideIndex) {
+        // Update the active state of the navigation dots
+        navDots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === slideIndex);
+        });
+
+        // Loop through each grid item and update its slides
+        gridItems.forEach(item => {
+            const slides = item.querySelectorAll('.slide-content');
+            if (slides.length > 0) {
+                slides.forEach((slide, index) => {
+                    // Make sure the slide exists before toggling class
+                    if(slides[slideIndex]) {
+                       slide.classList.toggle('active', index === slideIndex);
+                    }
+                });
+>>>>>>> 8c96ea4 (image grid)
             }
         });
     }
 
+<<<<<<< HEAD
 });
+=======
+    // Add click event listeners to each navigation dot
+    navDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            showSlide(index);
+        });
+    });
+
+    // Initialize the slider to the first slide
+    showSlide(0);
+});
+// Animate grid-items when they enter the viewport
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate-visible');
+      observer.unobserve(entry.target); // Animate only once
+    }
+  });
+}, {
+  threshold: 0.1,
+});
+
+document.querySelectorAll('.grid-item').forEach(item => {
+  observer.observe(item);
+});
+>>>>>>> 8c96ea4 (image grid)
