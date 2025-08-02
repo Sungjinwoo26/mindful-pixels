@@ -1,6 +1,7 @@
 # Mindful Pixels - PixxelHack Webathon 1.0 Submission
 
-Mindful Pixels is a serene digital space designed to promote calm, focus, and mental well-being. This project was created for the PixxelHack Webathon 1.0, focusing on precision, creativity, and a feature-rich user experience. It provides tools and resources to help users navigate their inner world in a mindful way.
+Mindful Pixels is a serene digital space designed to promote calm, focus, and mental well-being. 
+This project was created for the PixxelHack Webathon 1.0, focusing on precision, creativity, and a feature-rich user experience. It provides tools and resources to help users navigate their inner world in a mindful way.
 
 **Live Demo:** https://mindful-pixels.netlify.app/
 
@@ -10,7 +11,7 @@ Mindful Pixels is a serene digital space designed to promote calm, focus, and me
 
 ## Features & Implemented Elements
 
-This project successfully implements all 4 of the required elements from the PixxelHack element list, demonstrating a wide range of frontend development skills.
+This project successfully implements all 3 of the required elements from the PixxelHack element list, demonstrating a wide range of frontend development skills.
 
 ### Core Features
 * **Fully Responsive Design:** Adapts seamlessly to all screen sizes, from mobile devices to desktops.
