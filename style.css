@@ -149,14 +149,15 @@ header {
     z-index: 100;
 }
 
+.logo-link {
+    text-decoration: none;
+    color: inherit; 
+}
+
 .logo {
     font-family: var(--font-heading);
     font-weight: 700;
     font-size: 1.5rem;
-}
-.logo-link {
-    text-decoration: none;
-    color: inherit; 
 }
 
 .nav-toggle {
@@ -166,15 +167,17 @@ header {
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
+    z-index: 110;
 }
 
 .nav-toggle span {
     width: 100%;
     height: 3px;
     background-color: var(--text-color);
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-in-out;
 }
 
+/* Animate hamburger to 'X' */
 .nav-toggle.active span:nth-child(1) {
     transform: translateY(9.5px) rotate(45deg);
 }
@@ -188,72 +191,141 @@ header {
 .nav-menu {
     position: fixed;
     top: 0;
-    right: 0;
-    width: 50%;
+    right: 0; 
+    left: auto; 
+    width: 90vw; 
+    max-width: 1000px; 
     height: 100vh;
     background-color: #fff;
     color: #000;
-    transform: translateX(100%);
-    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
     z-index: 90;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    padding: 6rem 0; 
+    /* Animation: expand from top rght */
+    transform: scale(0);
+    transform-origin: top right;
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .nav-menu.active {
-    transform: translateX(0);
+    transform: scale(1);
+}
+
+.nav-close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: var(--font-main);
+    font-weight: 700;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-close-btn:hover {
+    background-color: #000;
+    color: #fff;
 }
 
 .nav-content {
-    width: 80%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .nav-description {
     font-size: 1.1rem;
-    margin-bottom: 3rem;
     max-width: 400px;
+    color: #555;
+    padding: 0 5%; /* Add horizontal padding */
+    margin-bottom: 2rem;
 }
 
 .nav-menu ul {
     list-style: none;
-}
-
-.nav-menu ul li a {
-    font-family: var(--font-heading);
-    font-size: clamp(3rem, 10vw, 6rem);
-    font-weight: 700;
-    color: #000;
-    text-decoration: none;
-    line-height: 1.1;
-    position: relative;
-    display: inline-block;
-    padding: 0 0.5rem;
-    transition: color 0.3s ease;
+    width: 100%;
 }
 
 .nav-menu ul li {
-    margin: 1rem 0;
-    overflow: hidden;
+    border-bottom: 1px solid #eee;
+    height: 100px; /* Set a fixed height for each item */
+    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    position: relative;
+    background-color: #fff; /* Default background */
 }
 
-.nav-menu ul li a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+.nav-menu ul li:first-child {
+    border-top: 1px solid #eee;
+}
+
+/* Create the overlapping effect */
+.nav-menu ul:not(:hover) li + li {
+    
+    margin-top: -40px; 
+}
+
+
+.nav-menu ul:hover li:hover {
+    height: 120px; 
+}
+
+.nav-menu ul li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%; 
+    text-decoration: none;
+    color: #000;
     height: 100%;
-    background-color: var(--accent-color-1);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
-    z-index: -1;
+    width: 100%;
 }
-.nav-menu ul li:nth-child(2) a::after { background-color: var(--accent-color-2); }
 
-.nav-menu ul li a:hover::after {
-    transform: scaleX(1);
+.nav-link-text {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 8vw, 3rem);
+    font-weight: 700;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1.5px #000;
+    transition: all 0.4s ease;
+}
+
+.nav-link-arrow {
+    border: 1.5px solid #ccc;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #888;
+    transition: all 0.4s ease;
+    flex-shrink: 0;
+}
+
+
+.nav-menu ul li:hover {
+    
+    background-color: #ff6b00; 
+}
+
+.nav-menu ul li:hover .nav-link-text {
+    color: #fff;
+    -webkit-text-stroke: 0px; 
+}
+
+.nav-menu ul li:hover .nav-link-arrow {
+    background-color: #fff;
+    color: #000;
+    border-color: #fff;
 }
 
 /* ==================== Home Page ==================== */

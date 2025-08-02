@@ -39,27 +39,40 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==================== Navbar Logic ====================
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
+    const navCloseBtn = document.getElementById('nav-close-btn');
 
-    if (navToggle && navMenu) {
+    if (navToggle && navMenu && navCloseBtn) {
+        // Event to open the menu
         navToggle.addEventListener('click', () => {
-            navToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
+            navMenu.classList.add('active');
+            navToggle.classList.add('active'); // Animate hamburger to 'X'
+        });
+
+        // Event to close the menu
+        navCloseBtn.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active'); // Revert 'X' to hamburger
         });
     }
 
-    // ==================== Team Section Logic ====================
+    // ==================== Team Section Logic  ====================
     const teamMembers = document.querySelectorAll('.team-member');
     const teamImage = document.getElementById('team-member-image');
 
     if (teamMembers.length > 0 && teamImage) {
+       
         if (teamMembers[0]) {
             teamMembers[0].classList.add('active');
             teamImage.src = teamMembers[0].getAttribute('data-image');
         }
+
         teamMembers.forEach(member => {
             member.addEventListener('mouseenter', () => {
+              
                 teamMembers.forEach(m => m.classList.remove('active'));
+          
                 member.classList.add('active');
+              
                 const newImageSrc = member.getAttribute('data-image');
                 teamImage.src = newImageSrc;
             });
