@@ -987,7 +987,7 @@ spline-viewer {
         align-self: flex-end;
     }
 
-<<<<<<< HEAD
+
 .team-image-viewer {
     display: none;
 }
@@ -1018,8 +1018,6 @@ spline-viewer {
     margin: 0 15px;
 }
 }
-=======
-}
 
 
 /* ==================== Image Grid ==================== */
@@ -1035,11 +1033,11 @@ spline-viewer {
 } */
 
 .featured-products {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 4rem 1rem;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 1rem;
+    text-align: center;
 }
 
 .container {
@@ -1076,14 +1074,13 @@ spline-viewer {
     background-color: #fff; */
     opacity: 0;
     transform: translateY(40px);
-    transform: translateY(40px);
-    transition: all 0.6s ease;
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 
 .grid-item.animate-visible {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .grid-item.large-item {
@@ -1209,9 +1206,9 @@ spline-viewer {
 .grid-item:nth-child(5) { animation-delay: 0.5s; }
 
 @keyframes fadeInUp {
-  to {
+    to {
     opacity: 1;
     transform: translateY(0);
-  }
 }
->>>>>>> 8c96ea4 (image grid)
+}
+
