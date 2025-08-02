@@ -1006,7 +1006,41 @@ spline-viewer {
     margin: 4rem 0;
 }
 
+/* ==================== Digital Zen Garden ==================== */
+.zen-garden-section {
+    background-color: #0a0a0a;
+    padding: 3rem 2rem;
+    margin: 4rem 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
 
+.zen-garden-section h3 {
+    margin-top: 0;
+}
+
+.zen-garden-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 2rem auto;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    background-color: #000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+#zen-garden-canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    cursor: crosshair;
+    background-color: #f4f1e9; /* A calming, sandy color */
+}
+
+#rake-garden-btn {
+    margin-top: 0; /* Adjusted margin for this specific button */
+}
 
 /* ==================== Responsive Design ==================== */
 @media (max-width: 768px) {

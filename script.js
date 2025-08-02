@@ -49,28 +49,39 @@ if (navToggle && navMenu) {
 }
 
     // ==================== Team Section Logic  ====================
+        // ==================== Team Section Logic  ====================
     const teamMembers = document.querySelectorAll('.team-member');
     const teamImage = document.getElementById('team-member-image');
 
     if (teamMembers.length > 0 && teamImage) {
-       
+        // Set the first member as active by default on page load
         if (teamMembers[0]) {
             teamMembers[0].classList.add('active');
             teamImage.src = teamMembers[0].getAttribute('data-image');
         }
 
         teamMembers.forEach(member => {
-            member.addEventListener('mouseenter', () => {
-              
+            const handleInteraction = () => {
+                // Don't do anything if it's already active
+                if (member.classList.contains('active')) return;
+
+                // Remove active class from all other members
                 teamMembers.forEach(m => m.classList.remove('active'));
           
+                // Add active class to the current member
                 member.classList.add('active');
               
+                // Change the image source
                 const newImageSrc = member.getAttribute('data-image');
                 teamImage.src = newImageSrc;
-            });
+            };
+
+            // Add listeners for both mouse hover and touch/click
+            member.addEventListener('mouseenter', handleInteraction);
+            member.addEventListener('click', handleInteraction);
         });
     }
+
 
     // ==================== Meditation Timer Logic ====================
     const timerDisplay = document.getElementById('timer-display');
@@ -206,5 +217,88 @@ if (navToggle && navMenu) {
             }
         });
     }
+
+
+        // ==================== Digital Zen Garden Logic ====================
+    const zenCanvas = document.getElementById('zen-garden-canvas');
+    if (zenCanvas) {
+        const ctx = zenCanvas.getContext('2d');
+        const rakeBtn = document.getElementById('rake-garden-btn');
+        let isRaking = false;
+
+        // Set canvas size based on its container
+        const setCanvasSize = () => {
+            const container = zenCanvas.parentElement;
+            zenCanvas.width = container.clientWidth;
+            zenCanvas.height = container.clientWidth * 0.6; // Maintain an aspect ratio
+            smoothSand(); // Redraw sand after resize
+        };
+
+        // Function to draw the base sand color
+        const smoothSand = () => {
+            ctx.fillStyle = '#f4f1e9';
+            ctx.fillRect(0, 0, zenCanvas.width, zenCanvas.height);
+        };
+
+        // Function to draw the rake lines
+        const drawRake = (x, y) => {
+            if (!isRaking) return;
+            ctx.lineWidth = 1;
+            ctx.lineCap = 'round';
+            
+            // Draw multiple lines for a "rake" effect
+            for (let i = -4; i <= 4; i += 4) {
+                ctx.beginPath();
+                ctx.moveTo(lastX + i, lastY + i);
+                ctx.lineTo(x + i, y + i);
+                // Use a subtle, dark color for the grooves
+                ctx.strokeStyle = 'rgba(0, 0, 0, 0.05)';
+                ctx.stroke();
+            }
+
+            // Update last coordinates
+            [lastX, lastY] = [x, y];
+        };
+
+        let lastX = 0;
+        let lastY = 0;
+
+        // Event Listeners for Mouse
+        zenCanvas.addEventListener('mousedown', (e) => {
+            isRaking = true;
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+        });
+        zenCanvas.addEventListener('mousemove', (e) => drawRake(e.offsetX, e.offsetY));
+        zenCanvas.addEventListener('mouseup', () => isRaking = false);
+        zenCanvas.addEventListener('mouseout', () => isRaking = false);
+
+        // Event Listeners for Touch
+        zenCanvas.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            isRaking = true;
+            const touch = e.touches[0];
+            const rect = zenCanvas.getBoundingClientRect();
+            [lastX, lastY] = [touch.clientX - rect.left, touch.clientY - rect.top];
+        });
+        zenCanvas.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const rect = zenCanvas.getBoundingClientRect();
+            const x = touch.clientX - rect.left;
+            const y = touch.clientY - rect.top;
+            drawRake(x, y);
+        });
+        zenCanvas.addEventListener('touchend', () => isRaking = false);
+        zenCanvas.addEventListener('touchcancel', () => isRaking = false);
+
+
+        // Rake button functionality
+        rakeBtn.addEventListener('click', smoothSand);
+
+        // Initial setup
+        window.addEventListener('resize', setCanvasSize);
+        setCanvasSize();
+    }
+
 
 });
