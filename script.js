@@ -48,8 +48,8 @@ if (navToggle && navMenu) {
     });
 }
 
-    // ==================== Team Section Logic  ====================
-        // ==================== Team Section Logic  ====================
+    
+     // ==================== Team Section Logic  ====================
     const teamMembers = document.querySelectorAll('.team-member');
     const teamImage = document.getElementById('team-member-image');
 
@@ -219,7 +219,7 @@ if (navToggle && navMenu) {
     }
 
 
-        // ==================== Digital Zen Garden Logic ====================
+      // ==================== Digital Zen Garden Logic ====================
     const zenCanvas = document.getElementById('zen-garden-canvas');
     if (zenCanvas) {
         const ctx = zenCanvas.getContext('2d');
@@ -243,7 +243,8 @@ if (navToggle && navMenu) {
         // Function to draw the rake lines
         const drawRake = (x, y) => {
             if (!isRaking) return;
-            ctx.lineWidth = 1;
+            
+            ctx.lineWidth = 1; // Set consistent line width for all devices
             ctx.lineCap = 'round';
             
             // Draw multiple lines for a "rake" effect
@@ -251,8 +252,8 @@ if (navToggle && navMenu) {
                 ctx.beginPath();
                 ctx.moveTo(lastX + i, lastY + i);
                 ctx.lineTo(x + i, y + i);
-                // Use a subtle, dark color for the grooves
-                ctx.strokeStyle = 'rgba(0, 0, 0, 0.05)';
+                // Use a darker, more visible color for the grooves
+                ctx.strokeStyle = 'rgba(0, 0, 0, 0.15)';
                 ctx.stroke();
             }
 
@@ -299,6 +300,7 @@ if (navToggle && navMenu) {
         window.addEventListener('resize', setCanvasSize);
         setCanvasSize();
     }
+
 
 
 });

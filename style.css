@@ -1102,4 +1102,9 @@ spline-viewer {
     width: 240px;
     margin: 0 15px;
 }
+
+.zen-garden-section {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
 }
